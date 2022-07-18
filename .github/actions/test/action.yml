@@ -6,8 +6,8 @@ author: ok-nick
 inputs:
   version:
     required: false
-  no-trust-check:
-    default: 'false'
+  trust-check:
+    default: 'true'
     required: false
   trusts:
     required: false
@@ -34,7 +34,7 @@ runs:
       uses: ./
       with:
         version: ${{ inputs.version }}
-        no-trust-check: ${{ inputs.no-trust-check }}
+        trust-check: ${{ inputs.no-trust-check }}
         trusts: ${{ inputs.trusts }}
         path: ${{ inputs.path }}
         token: ${{ inputs.token }}

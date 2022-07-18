@@ -19,7 +19,7 @@ jobs:
 
       - uses: ./.github/actions/test
         with:
-          no-trust-check: true
+          trust-check: false
 
   test_mac_no_trust:
     runs-on: macos-latest
@@ -28,7 +28,7 @@ jobs:
 
       - uses: ./.github/actions/test
         with:
-          no-trust-check: true
+          trust-check: false
 
   test_windows_no_trust:
     runs-on: windows-latest
@@ -37,7 +37,7 @@ jobs:
 
       - uses: ./.github/actions/test
         with:
-          no-trust-check: true
+          trust-check: false
 
   test_linux_with_trust:
     runs-on: ubuntu-latest
@@ -75,7 +75,7 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: v0.2.2
-          no-trust-check: true
+          trust-check: false
           path: "./project"
 
   test_mac_version_and_path:
@@ -87,9 +87,8 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: v0.2.2
-          no-trust-check: true
+          trust-check: false
           path: "./project"
-
 
   test_windows_version_and_path:
     runs-on: windows-latest
@@ -100,5 +99,5 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: v0.2.2
-          no-trust-check: true
+          trust-check: false
           path: "./project"

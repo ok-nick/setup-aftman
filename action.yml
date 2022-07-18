@@ -6,9 +6,9 @@ inputs:
   version:
     description: '`aftman` version in the form `vx.x.x`'
     required: false
-  no-trust-check:
+  trust-check:
     description: "Whether to check trusts"
-    default: 'false'
+    default: 'true'
     required: false
   trusts:
     description: 'List of trusted tools separated by spaces'
@@ -54,7 +54,7 @@ runs:
       shell: bash
 
     - name: Setup trusts
-      if: inputs.no-trust-check == 'false'
+      if: inputs.trust-check == 'false'
       run: |
         for name in ${{ inputs.trusts }}; do
           aftman trust $name
@@ -64,8 +64,8 @@ runs:
     - name: Install tools
       run: |
         cd ${{ inputs.path }}
-        if [ ${{ inputs.no-trust-check }} == true ]; then
-          aftman install --no-trust-check 
+        if [ ${{ inputs.trust-check }} == true ]; then
+          aftman install --trust-check 
         else
           aftman install
         fi
