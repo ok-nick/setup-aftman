@@ -34,7 +34,7 @@ runs:
       uses: ./
       with:
         version: ${{ inputs.version }}
-        trust-check: ${{ inputs.no-trust-check }}
+        trust-check: ${{ inputs.trust-check }}
         trusts: ${{ inputs.trusts }}
         path: ${{ inputs.path }}
         token: ${{ inputs.token }}
