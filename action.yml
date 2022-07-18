@@ -60,10 +60,6 @@ runs:
           aftman trust $name
         done
 
-    - name: Test
-      run: cat ./aftman.toml
-      shell: bash
-
     - name: Install tools
       shell: bash
       run: |
@@ -71,6 +67,7 @@ runs:
         if [ ${{ inputs.no-trust-check }} == true ]; then
           aftman install --no-trust-check 
         else
+          cat ./aftman.toml
           aftman install
         fi
 
