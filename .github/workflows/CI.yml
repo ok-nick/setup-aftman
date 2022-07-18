@@ -69,6 +69,7 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: 0.2.2
+          no-trust-check: true
           path: "./project"
 
   test_mac_version_and_path:
@@ -80,6 +81,7 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: 0.2.2
+          no-trust-check: true
           path: "./project"
 
 
@@ -92,4 +94,5 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: 0.2.2
+          no-trust-check: true
           path: "./project"
