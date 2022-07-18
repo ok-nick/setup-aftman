@@ -22,7 +22,7 @@ steps:
 |`version`|`aftman` version in the form `vx.x.x`|-|
 |`no-trust-check`|Whether to check trusts|`false`|
 |`trusts`|List of trusted tools separated by spaces|-|
-|`path`|Path to the `aftman.toml` directory|-|
+|`path`|Path to the `aftman.toml` directory|`./`|
 |`token`|Github token from `secrets.GITHUB_TOKEN`|-|
 
 ## Credits

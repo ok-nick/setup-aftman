@@ -15,7 +15,7 @@ inputs:
     required: false
   path:
     description: 'Path to the `aftman.toml` directory'
-    default: ''
+    default: './'
     required: false
   token:
     description: 'Github token from `secrets.GITHUB_TOKEN`'
@@ -67,7 +67,6 @@ runs:
         if [ ${{ inputs.no-trust-check }} == true ]; then
           aftman install --no-trust-check 
         else
-          cat ./aftman.toml
           aftman install
         fi
 
