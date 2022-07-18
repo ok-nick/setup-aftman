@@ -18,7 +18,7 @@ inputs:
     default: './'
     required: false
   token:
-    description: 'Github token from `secrets.GITHUB_TOKEN`'
+    description: 'Github token from `github.token`'
     required: true
 
 runs:
