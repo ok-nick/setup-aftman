@@ -19,6 +19,7 @@ inputs:
     required: false
   token:
     description: 'Github token from `github.token`'
+    default: '${{ github.token }}'
     required: true
 
 runs:

@@ -12,8 +12,6 @@ Github action to install and run [aftman](https://github.com/LPGhatguy/aftman); 
 ```yaml
 steps:
 - uses: actions/setup-aftman@v1
-  with:
-    token: ${{ github.token }}
 ```
 
 ### Parameters
@@ -23,7 +21,7 @@ steps:
 |`no-trust-check`|Whether to check trusts|`false`|
 |`trusts`|List of trusted tools separated by spaces|-|
 |`path`|Path to the `aftman.toml` directory|`./`|
-|`token`|Github token from `github.token`|-|
+|`token`|Github token from `github.token`|`github.token`|
 
 ## Credits
 [@nezuo](https://github.com/nezuo) - Installing `aftman` using `gh`
