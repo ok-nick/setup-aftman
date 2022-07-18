@@ -7,10 +7,9 @@ runs:
   steps:
     - shell: bash
       run: |
-        cat > ./aftman.toml << EOF
+        cat > $GITHUB_WORKSPACE/aftman.toml << EOF
         [tools]
           selene = "Kampfkarren/selene@0.19.1"
           stylua = "JohnnyMorganz/stylua@0.14.0"
           rojo = "rojo-rbx/rojo@7.2.1"
         EOF
-        tree -d
