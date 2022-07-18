@@ -10,12 +10,10 @@ jobs:
       - name: Setup environment
         uses: ./.github/actions/env
 
-      - name: Test
-        run: cat ./aftman.toml
-
       - name: Run setup-aftman
         uses: ./
         with:
+          no-trust-check: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
   test_mac:
@@ -29,6 +27,7 @@ jobs:
       - name: Run setup-aftman
         uses: ./
         with:
+          no-trust-check: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
   test_windows:
@@ -42,5 +41,6 @@ jobs:
       - name: Run setup-aftman
         uses: ./
         with:
+          no-trust-check: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
