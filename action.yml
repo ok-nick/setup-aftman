@@ -60,6 +60,9 @@ runs:
           aftman trust $name
         done
 
+    - name: Test
+      run: cat ./aftman.toml
+
     - name: Install tools
       shell: bash
       run: |
