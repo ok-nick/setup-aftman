@@ -65,7 +65,7 @@ runs:
       run: |
         cd ${{ inputs.path }}
         if [ ${{ inputs.trust-check }} == false ]; then
-          aftman install --trust-check 
+          aftman install --no-trust-check 
         else
           aftman install
         fi
