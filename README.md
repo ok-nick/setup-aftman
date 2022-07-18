@@ -23,7 +23,7 @@ steps:
 |`no-trust-check`|Whether to check trusts|`false`|
 |`trusts`|List of trusted tools separated by spaces|-|
 |`path`|Path to the `aftman.toml` directory|-|
-|`token`|Github token from `secrets.GITHUB_TOKEN`||
+|`token`|Github token from `secrets.GITHUB_TOKEN`|-|
 
 ## Credits
 [@nezuo](https://github.com/nezuo) - Installing `aftman` using `gh`
