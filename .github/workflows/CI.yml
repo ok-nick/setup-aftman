@@ -10,6 +10,9 @@ jobs:
       - name: Setup environment
         uses: ./.github/actions/env
 
+      - name: Test
+        run: tree -d
+
       - name: Run setup-aftman
         uses: ./
         with:

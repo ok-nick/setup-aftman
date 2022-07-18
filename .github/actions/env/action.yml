@@ -7,7 +7,7 @@ runs:
   steps:
     - shell: bash
       run: |
-        cat > $GITHUB_WORKSPACE/aftman.toml << EOF
+        cat > ./aftman.toml << EOF
         [tools]
           selene = "Kampfkarren/selene@0.19.1"
           stylua = "JohnnyMorganz/stylua@0.14.0"
