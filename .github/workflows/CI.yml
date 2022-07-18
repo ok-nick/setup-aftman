@@ -7,7 +7,6 @@ on:
     paths:
       - '**.yml'
 
-
 defaults:
   run:
     shell: bash
