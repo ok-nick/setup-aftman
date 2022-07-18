@@ -62,6 +62,7 @@ runs:
 
     - name: Test
       run: cat ./aftman.toml
+      shell: bash
 
     - name: Install tools
       shell: bash
