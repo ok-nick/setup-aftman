@@ -2,45 +2,72 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  test_linux:
+  test_linux_no_trust:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup environment
-        uses: ./.github/actions/env
-
-      - name: Run setup-aftman
-        uses: ./
+      - uses: ./.github/actions/env
         with:
           no-trust-check: true
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-  test_mac:
+  test_mac_no_trust:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup environment
-        uses: ./.github/actions/env
-
-      - name: Run setup-aftman
-        uses: ./
+      - uses: ./.github/actions/env
         with:
           no-trust-check: true
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-  test_windows:
+  test_windows_no_trust:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup environment
-        uses: ./.github/actions/env
-
-      - name: Run setup-aftman
-        uses: ./
+      - uses: ./.github/actions/env
         with:
           no-trust-check: true
-          token: ${{ secrets.GITHUB_TOKEN }}
 
+  test_linux_with_trust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/env
+        with:
+          trusts: "Kampfkarren/selene JohnnyMorganz/stylua rojo-rbx/rojo"
+
+  test_mac_with_trust:
+    runs-on: macos-latest
+    steps:
+      - uses: ./.github/actions/env
+        with:
+          trusts: "Kampfkarren/selene JohnnyMorganz/stylua rojo-rbx/rojo"
+
+  test_windows_with_trust:
+    runs-on: windows-latest
+    steps:
+      - uses: ./.github/actions/env
+        with:
+          trusts: "Kampfkarren/selene JohnnyMorganz/stylua rojo-rbx/rojo"
+
+  test_linux_version_and_path:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/env
+        run: "mkdir project"
+        with:
+          version: 0.2.2
+          path: "./project"
+
+  test_mac_version_and_path:
+    runs-on: macos-latest
+    steps:
+      - uses: ./.github/actions/env
+        run: "mkdir project"
+        with:
+          version: 0.2.2
+          path: "./project"
+
+
+  test_windows_version_and_path:
+    runs-on: windows-latest
+    steps:
+      - uses: ./.github/actions/env
+        run: "mkdir project"
+        with:
+          version: 0.2.2
+          path: "./project"

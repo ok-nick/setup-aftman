@@ -15,39 +15,39 @@ inputs:
     required: false
   path:
     description: 'Path to the `aftman.toml` directory'
-    default: './'
+    default: '.'
     required: false
   token:
     description: 'Github token from `github.token`'
     default: '${{ github.token }}'
-    required: true
+    required: false
+
+defaults:
+  run:
+    shell: bash
 
 runs:
   using: 'composite'
   steps:
     - name: Download aftman
       if: runner.os == 'Linux'
-      shell: bash
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *linux-x86_64.zip
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: Download aftman
       if: runner.os == 'macOS'
-      shell: bash
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *macos-x86_64.zip
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: Download aftman
       if: runner.os == 'Windows'
-      shell: bash
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *windows-x86_64.zip
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: Install aftman
-      shell: bash
       run: |
         unzip aftman*.zip
         ./aftman self-install
@@ -55,14 +55,12 @@ runs:
 
     - name: Setup trusts
       if: ${{ inputs.no-trust-check == false }}
-      shell: bash
       run: |
         for name in ${{ inputs.trusts }}; do
           aftman trust $name
         done
 
     - name: Install tools
-      shell: bash
       run: |
         cd ${{ inputs.path }}
         if [ ${{ inputs.no-trust-check }} == true ]; then

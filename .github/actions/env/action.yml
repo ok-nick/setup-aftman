@@ -1,15 +1,50 @@
-name: Build Test Environment
-description: Build test environment for setup-aftman
+name: Test
+description: Test
 author: ok-nick
+
+# same input as `setup-aftman`
+inputs:
+  version:
+    required: false
+  no-trust-check:
+    default: 'false'
+    required: false
+  trusts:
+    required: false
+  path:
+    default: '.'
+    required: false
+  token:
+    default: '${{ github.token }}'
+    required: false
+
+defaults:
+  run:
+    shell: bash
 
 runs:
   using: 'composite'
   steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup environment
+      uses: ./.github/actions/env
+
     - shell: bash
       run: |
-        cat > ./aftman.toml << EOF
+        cat > ${{ inputs.path}}/aftman.toml << EOF
         [tools]
           selene = "Kampfkarren/selene@0.19.1"
           stylua = "JohnnyMorganz/stylua@0.14.0"
           rojo = "rojo-rbx/rojo@7.2.1"
         EOF
+
+    - name: Run setup-aftman
+      uses: ./
+      with:
+        version: ${{ inputs.version }}
+        no-trust-check: ${{ inputs.no-trust-check }}
+        trusts: ${{ inputs.trusts }}
+        path: ${{ inputs.path }}
+        token: ${{ inputs.token }}
+
