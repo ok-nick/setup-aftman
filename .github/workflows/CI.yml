@@ -47,8 +47,8 @@ jobs:
   test_linux_version_and_path:
     runs-on: ubuntu-latest
     steps:
+      - run: mkdir project
       - uses: ./.github/actions/env
-        run: "mkdir project"
         with:
           version: 0.2.2
           path: "./project"
@@ -56,8 +56,8 @@ jobs:
   test_mac_version_and_path:
     runs-on: macos-latest
     steps:
+      - run: mkdir project
       - uses: ./.github/actions/env
-        run: "mkdir project"
         with:
           version: 0.2.2
           path: "./project"
@@ -66,8 +66,8 @@ jobs:
   test_windows_version_and_path:
     runs-on: windows-latest
     steps:
+      - run: mkdir project
       - uses: ./.github/actions/env
-        run: "mkdir project"
         with:
           version: 0.2.2
           path: "./project"
