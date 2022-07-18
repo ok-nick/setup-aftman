@@ -54,7 +54,7 @@ runs:
       shell: bash
 
     - name: Setup trusts
-      if: inputs.trust-check == 'false'
+      if: inputs.trust-check == 'true'
       run: |
         for name in ${{ inputs.trusts }}; do
           aftman trust $name
@@ -64,7 +64,7 @@ runs:
     - name: Install tools
       run: |
         cd ${{ inputs.path }}
-        if [ ${{ inputs.trust-check }} == true ]; then
+        if [ ${{ inputs.trust-check }} == false ]; then
           aftman install --trust-check 
         else
           aftman install
