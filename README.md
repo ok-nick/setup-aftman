@@ -6,7 +6,7 @@
   </p>
 </div>
 
-Github action to install and run [aftman](https://github.com/LPGhatguy/aftman), a toolchain manager.
+Github action to install and run [aftman](https://github.com/LPGhatguy/aftman); a toolchain manager.
 
 ## Usage
 ```yaml
