@@ -46,13 +46,14 @@ runs:
 
     - name: Setup trusts
       if: ${{ inputs.no-trust-check == 'false' }}
+      shell: bash
       run: |
         for name in ${{ inputs.trusts }}; do
           aftman trust $name
         done
-      shell: bash
 
     - name: Install tools
+      shell: bash
       run: |
         cd ${{ inputs.path }}
         if [ ${{ inputs.no-trust-check }} == 'true' ]; do
@@ -60,7 +61,6 @@ runs:
         else
           aftman install
         fi
-      shell: bash
 
 branding:
   icon: link-2
