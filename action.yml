@@ -1,6 +1,6 @@
-name: 'setup-aftman'
-description: 'Github action to install aftman'
-author: 'ok-nick'
+name: setup-aftman
+description: Github action to install aftman
+author: ok-nick
 
 inputs:
   version:
@@ -29,12 +29,12 @@ runs:
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *linux-x86_64.zip
 
     - name: Download aftman
-      if: runner.os == 'Windows'
-      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *windows-x86_64.zip
-
-    - name: Download aftman
       if: runner.os == 'macOS'
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *macos-x86_64.zip
+
+    - name: Download aftman
+      if: runner.os == 'Windows'
+      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *windows-x86_64.zip
 
     - name: Install aftman
       run: |
