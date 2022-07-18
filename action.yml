@@ -53,7 +53,7 @@ runs:
         echo "$HOME/.aftman/bin" >> $GITHUB_PATH
 
     - name: Setup trusts
-      if: ${{ inputs.no-trust-check == 'false' }}
+      if: ${{ inputs.no-trust-check == false }}
       shell: bash
       run: |
         for name in ${{ inputs.trusts }}; do
@@ -64,7 +64,7 @@ runs:
       shell: bash
       run: |
         cd ${{ inputs.path }}
-        if [ ${{ inputs.no-trust-check }} == 'true' ]; then
+        if [ ${{ inputs.no-trust-check }} == true ]; then
           aftman install --no-trust-check 
         else
           aftman install
