@@ -26,17 +26,21 @@ runs:
   steps:
     - name: Download aftman
       if: runner.os == 'Linux'
+      shell: bash
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *linux-x86_64.zip
 
     - name: Download aftman
       if: runner.os == 'macOS'
+      shell: bash
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *macos-x86_64.zip
 
     - name: Download aftman
       if: runner.os == 'Windows'
+      shell: bash
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *windows-x86_64.zip
 
     - name: Install aftman
+      shell: bash
       run: |
         unzip aftman*.zip
         ./aftman self-install
