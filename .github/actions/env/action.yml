@@ -13,3 +13,4 @@ runs:
           stylua = "JohnnyMorganz/stylua@0.14.0"
           rojo = "rojo-rbx/rojo@7.2.1"
         EOF
+        tree -d
