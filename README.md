@@ -26,4 +26,4 @@ steps:
 |`token`|Github token from `secrets.GITHUB_TOKEN`||
 
 ## Credits
-@nezuo - Installing `aftman` using `gh`
+[@nezuo](https://github.com/nezuo) - Installing `aftman` using `gh`
