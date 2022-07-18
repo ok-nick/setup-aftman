@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup environment
-        uses: ./.github/actions/env.yml
+        uses: ./.github/actions/env/action.yml
 
       - name: Run setup-aftman
         uses: ok-nick/setup-aftman@main
@@ -17,7 +17,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Setup environment
-        uses: ./.github/actions/env.yml
+        uses: ./.github/actions/env/action.yml
 
       - name: Run setup-aftman
         uses: ok-nick/setup-aftman@main
@@ -28,7 +28,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Setup environment
-        uses: ./.github/actions/env.yml
+        uses: ./.github/actions/env/action.yml
 
       - name: Run setup-aftman
         uses: ok-nick/setup-aftman@main
