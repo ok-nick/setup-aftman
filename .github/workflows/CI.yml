@@ -1,8 +1,12 @@
 name: CI
 on:
-  [push, pull_request]:
+  push:
     paths:
       - '**.yml'
+  pull_request:
+    paths:
+      - '**.yml'
+
 
 defaults:
   run:
