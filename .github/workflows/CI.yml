@@ -75,7 +75,7 @@ jobs:
       - run: mkdir project
       - uses: ./.github/actions/test
         with:
-          version: 0.2.2
+          version: v0.2.2
           no-trust-check: true
           path: "./project"
 
@@ -87,7 +87,7 @@ jobs:
       - run: mkdir project
       - uses: ./.github/actions/test
         with:
-          version: 0.2.2
+          version: v0.2.2
           no-trust-check: true
           path: "./project"
 
@@ -100,6 +100,6 @@ jobs:
       - run: mkdir project
       - uses: ./.github/actions/test
         with:
-          version: 0.2.2
+          version: v0.2.2
           no-trust-check: true
           path: "./project"
