@@ -1,0 +1,37 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  test_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup environment
+        uses: ./.github/actions/env.yml
+
+      - name: Run setup-aftman
+        uses: ok-nick/setup-aftman@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  test_mac:
+    runs-on: macos-latest
+    steps:
+      - name: Setup environment
+        uses: ./.github/actions/env.yml
+
+      - name: Run setup-aftman
+        uses: ok-nick/setup-aftman@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  test_windows:
+    runs-on: windows-latest
+    steps:
+      - name: Setup environment
+        uses: ./.github/actions/env.yml
+
+      - name: Run setup-aftman
+        uses: ok-nick/setup-aftman@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
