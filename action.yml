@@ -54,7 +54,7 @@ runs:
       shell: bash
 
     - name: Setup trusts
-      if: inputs.no-trust-check == false
+      if: inputs.no-trust-check == 'false'
       run: |
         echo RUNNING
         for name in ${{ inputs.trusts }}; do
