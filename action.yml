@@ -1,0 +1,39 @@
+name: 'setup-aftman'
+description: 'Github action to install aftman'
+
+inputs:
+  version:
+    description: '`aftman` version in the form `vx.x.x`'
+    required: false
+  token:
+    description: 'Github token from `secrets.GITHUB_TOKEN`'
+    required: true
+
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Download aftman
+      if: runner.os == 'Linux'
+      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman  --pattern *linux-x86_64.zip
+
+    - name: Download aftman
+      if: runner.os == 'Windows'
+      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *windows-x86_64.zip
+
+    - name: Download aftman
+      if: runner.os == 'macOS'
+      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *macos-x86_64.zip
+
+    - name: Install aftman
+      run: |
+        unzip aftman*.zip
+        ./aftman self-install
+        echo "$HOME/.aftman/bin" >> $GITHUB_PATH
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+
+branding:
+  icon: link-2
+  color: blue
+
