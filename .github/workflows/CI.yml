@@ -1,6 +1,10 @@
 name: CI
 on: [push, pull_request]
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   test_linux_no_trust:
     runs-on: ubuntu-latest

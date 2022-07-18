@@ -18,21 +18,17 @@ inputs:
     default: '${{ github.token }}'
     required: false
 
-defaults:
-  run:
-    shell: bash
-
 runs:
   using: 'composite'
   steps:
-    - shell: bash
-      run: |
+    - run: |
         cat > ${{ inputs.path}}/aftman.toml << EOF
         [tools]
           selene = "Kampfkarren/selene@0.19.1"
           stylua = "JohnnyMorganz/stylua@0.14.0"
           rojo = "rojo-rbx/rojo@7.2.1"
         EOF
+      shell: bash
 
     - name: Run setup-aftman
       uses: ./

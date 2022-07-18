@@ -22,28 +22,27 @@ inputs:
     default: '${{ github.token }}'
     required: false
 
-defaults:
-  run:
-    shell: bash
-
 runs:
   using: 'composite'
   steps:
     - name: Download aftman
       if: runner.os == 'Linux'
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *linux-x86_64.zip
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: Download aftman
       if: runner.os == 'macOS'
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *macos-x86_64.zip
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: Download aftman
       if: runner.os == 'Windows'
       run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *windows-x86_64.zip
+      shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
 
@@ -52,6 +51,7 @@ runs:
         unzip aftman*.zip
         ./aftman self-install
         echo "$HOME/.aftman/bin" >> $GITHUB_PATH
+      shell: bash
 
     - name: Setup trusts
       if: ${{ inputs.no-trust-check == false }}
@@ -59,6 +59,7 @@ runs:
         for name in ${{ inputs.trusts }}; do
           aftman trust $name
         done
+      shell: bash
 
     - name: Install tools
       run: |
@@ -68,6 +69,7 @@ runs:
         else
           aftman install
         fi
+      shell: bash
 
 branding:
   icon: link-2
