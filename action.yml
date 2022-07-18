@@ -64,7 +64,7 @@ runs:
       shell: bash
       run: |
         cd ${{ inputs.path }}
-        if [ ${{ inputs.no-trust-check }} == 'true' ]; do
+        if [ ${{ inputs.no-trust-check }} == 'true' ]; then
           aftman install --no-trust-check 
         else
           aftman install
