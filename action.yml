@@ -47,6 +47,16 @@ runs:
         GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: Install aftman
+      if: runner.os == 'Windows'
+      run: |
+        unzip aftman*.zip
+        ./aftman self-install
+        echo "$HOME/.aftman/bin"| Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+
+      shell: bash
+
+    - name: Install aftman
+      if: runner.os != 'Windows'
       run: |
         unzip aftman*.zip
         ./aftman self-install
