@@ -55,9 +55,9 @@ runs:
       shell: powershell
 
     - name: Install aftman
-      
+      if: runner.os != 'Windows'
       run: |
-        unzip -o aftman*.zip 
+        unzip  aftman*.zip 
         ./aftman self-install
         echo "$HOME/.aftman/bin" >> $GITHUB_PATH
       shell: bash
