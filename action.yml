@@ -57,7 +57,7 @@ runs:
     - name: Install aftman
       if: runner.os != 'Windows'
       run: |
-        unzip  aftman*.zip 
+        unzip aftman*.zip
         ./aftman self-install
         echo "$HOME/.aftman/bin" >> $GITHUB_PATH
       shell: bash
