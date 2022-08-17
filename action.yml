@@ -6,13 +6,6 @@ inputs:
   version:
     description: '`aftman` version in the form `vx.x.x`'
     required: false
-  trust-check:
-    description: "Whether to check trusts"
-    default: 'true'
-    required: false
-  trusts:
-    description: 'List of trusted tools separated by spaces'
-    required: false
   path:
     description: 'Path to the `aftman.toml` directory'
     default: '.'
@@ -53,22 +46,10 @@ runs:
         echo "$HOME/.aftman/bin" >> $GITHUB_PATH
       shell: bash
 
-    - name: Setup trusts
-      if: inputs.trust-check == 'true'
-      run: |
-        for name in ${{ inputs.trusts }}; do
-          aftman trust $name
-        done
-      shell: bash
-
     - name: Install tools
       run: |
         cd ${{ inputs.path }}
-        if [ ${{ inputs.trust-check }} == false ]; then
-          aftman install --no-trust-check 
-        else
-          aftman install
-        fi
+        aftman install --no-trust-check 
       shell: bash
 
 branding:

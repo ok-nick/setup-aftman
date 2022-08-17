@@ -6,11 +6,6 @@ author: ok-nick
 inputs:
   version:
     required: false
-  trust-check:
-    default: 'true'
-    required: false
-  trusts:
-    required: false
   path:
     default: '.'
     required: false
@@ -34,8 +29,6 @@ runs:
       uses: ./
       with:
         version: ${{ inputs.version }}
-        trust-check: ${{ inputs.trust-check }}
-        trusts: ${{ inputs.trusts }}
         path: ${{ inputs.path }}
         token: ${{ inputs.token }}
 

@@ -18,8 +18,6 @@ steps:
 |name|description|default|
 |---|---|---|
 |`version`|`aftman` version in the form `vx.x.x`|-|
-|`trust-check`|Whether to check trusts|`true`|
-|`trusts`|List of trusted tools separated by spaces|-|
 |`path`|Path to the `aftman.toml` directory|`.`|
 |`token`|Github token from `github.token`|`github.token`|
 

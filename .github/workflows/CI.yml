@@ -13,59 +13,23 @@ defaults:
     shell: bash
 
 jobs:
-  test_linux_no_trust:
+  test_linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: ./.github/actions/test
-        with:
-          trust-check: false
 
-  test_mac_no_trust:
+  test_mac:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: ./.github/actions/test
-        with:
-          trust-check: false
 
-  test_windows_no_trust:
+  test_windows:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: ./.github/actions/test
-        with:
-          trust-check: false
-
-  test_linux_with_trust:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: ./.github/actions/test
-        with:
-          trusts: "Kampfkarren/selene JohnnyMorganz/stylua rojo-rbx/rojo"
-
-  test_mac_with_trust:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: ./.github/actions/test
-        with:
-          trusts: "Kampfkarren/selene JohnnyMorganz/stylua rojo-rbx/rojo"
-
-  test_windows_with_trust:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: ./.github/actions/test
-        with:
-          trusts: "Kampfkarren/selene JohnnyMorganz/stylua rojo-rbx/rojo"
 
   test_linux_version_and_path:
     runs-on: ubuntu-latest
@@ -76,7 +40,6 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: v0.2.6
-          trust-check: false
           path: "./project"
 
   test_mac_version_and_path:
@@ -88,7 +51,6 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: v0.2.6
-          trust-check: false
           path: "./project"
 
   test_windows_version_and_path:
@@ -100,5 +62,4 @@ jobs:
       - uses: ./.github/actions/test
         with:
           version: v0.2.6
-          trust-check: false
           path: "./project"
