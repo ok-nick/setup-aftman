@@ -39,3 +39,10 @@ runs:
         path: ${{ inputs.path }}
         token: ${{ inputs.token }}
 
+    - name: Verify executables in PATH
+      run: |
+        if ! hash selene stylua rojo 2>/dev/null; then
+          exit 1;
+        fi
+      shell: bash
+
