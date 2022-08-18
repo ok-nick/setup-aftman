@@ -6,6 +6,13 @@ inputs:
   version:
     description: '`aftman` version in the form `vx.x.x`'
     required: false
+  trust-check:
+    deprecationMessage: 'Input `trust-check` is no longer used in `setup-aftman`, consider removing it from your configuration'
+    default: 'true'
+    required: false
+  trusts:
+    deprecationMessage: 'Input `trusts` is no longer used in `setup-aftman`, consider removing it from your configuration'
+    required: false
   path:
     description: 'Path to the `aftman.toml` directory'
     default: '.'
