@@ -6,11 +6,6 @@ author: ok-nick
 inputs:
   version:
     required: false
-  trust-check:
-    default: 'true'
-    required: false
-  trusts:
-    required: false
   path:
     default: '.'
     required: false
@@ -34,8 +29,20 @@ runs:
       uses: ./
       with:
         version: ${{ inputs.version }}
-        trust-check: ${{ inputs.trust-check }}
-        trusts: ${{ inputs.trusts }}
         path: ${{ inputs.path }}
         token: ${{ inputs.token }}
 
+    - name: Verify executables in PATH on Bash
+      run: |
+        if ! hash selene stylua rojo 2>/dev/null; then
+          exit 1;
+        fi
+      shell: bash
+
+    - name: Verify executables in PATH on PowerShell for Windows
+      if: runner.os == 'Windows'
+      run: |
+        Get-Command "selene"
+        Get-Command "stylua"
+        Get-Command "rojo"
+      shell: powershell
