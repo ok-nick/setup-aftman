@@ -40,7 +40,7 @@ runs:
       shell: bash
 
     - name: Verify executables in PATH on PowerShell for Windows
-      if: runner.os == "Windows"
+      if: runner.os == 'Windows'
       run: |
         Get-Command "selene"
         Get-Command "stylua"
