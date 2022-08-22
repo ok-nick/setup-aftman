@@ -32,10 +32,16 @@ runs:
         path: ${{ inputs.path }}
         token: ${{ inputs.token }}
 
-    - name: Verify executables in PATH
+    - name: Verify executables in PATH on Bash
       run: |
         if ! hash selene stylua rojo 2>/dev/null; then
           exit 1;
         fi
       shell: bash
 
+    - name: verify executables in PATH on Powershell
+      run: |
+        if ! hash selene stylua rojo 2>/dev/null; then
+          exit 1;
+        fi
+      shell: powershell
