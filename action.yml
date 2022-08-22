@@ -27,7 +27,7 @@ runs:
   steps:
     - name: Download aftman
       run: |
-        case "Windows" in
+        case ${{ runner.os }} in
           Linux) pattern="*linux-x86_64.zip" ;;
           macOS) pattern="*macos-x86_64.zip" ;;
           Windows) pattern="*windows-x86_64.zip" ;;
@@ -37,7 +37,6 @@ runs:
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
-
 
     - name: Install aftman
       run: |
@@ -49,7 +48,7 @@ runs:
     - name: Install tools
       run: |
         cd ${{ inputs.path }}
-        aftman install --no-trust-check 
+        aftman install --no-trust-check
       shell: bash
 
 branding:
