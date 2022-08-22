@@ -39,9 +39,9 @@ runs:
         fi
       shell: bash
 
-    - name: verify executables in PATH on Powershell
+    - name: Verify executables in PATH on Powershell
       run: |
-        if ! hash selene stylua rojo 2>/dev/null; then
-          exit 1;
-        fi
+        Get-Command "selene"
+        Get-Command "stylua"
+        Get-Command "rojo"
       shell: powershell
