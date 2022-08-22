@@ -26,25 +26,18 @@ runs:
   using: 'composite'
   steps:
     - name: Download aftman
-      if: runner.os == 'Linux'
-      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *linux-x86_64.zip
+      run: |
+        case "Windows" in
+          Linux) pattern="*linux-x86_64.zip" ;;
+          macOS) pattern="*macos-x86_64.zip" ;;
+          Windows) pattern="*windows-x86_64.zip" ;;
+        esac
+
+        gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern $pattern
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
 
-    - name: Download aftman
-      if: runner.os == 'macOS'
-      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *macos-x86_64.zip
-      shell: bash
-      env:
-        GITHUB_TOKEN: ${{ inputs.token }}
-
-    - name: Download aftman
-      if: runner.os == 'Windows'
-      run: gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern *windows-x86_64.zip
-      shell: bash
-      env:
-        GITHUB_TOKEN: ${{ inputs.token }}
 
     - name: Install aftman
       run: |
