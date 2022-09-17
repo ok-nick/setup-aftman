@@ -56,6 +56,13 @@ runs:
       run: echo "$HOME/.aftman/bin" >> $GITHUB_PATH
       shell: bash
 
+    - name: Create auth file
+      run: |
+        cat > ~/.aftman/auth.toml << EOF
+        github = "${{ github.token }}"
+        EOF
+      shell: bash
+
     - name: Install tools
       run: |
         cd ${{ inputs.path }}
