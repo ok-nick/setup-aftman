@@ -3,10 +3,10 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '**.yml'
+      - "**.yml"
   pull_request:
     paths:
-      - '**.yml'
+      - "**.yml"
 
 defaults:
   run:
@@ -39,7 +39,7 @@ jobs:
       - run: mkdir project
       - uses: ./.github/actions/test
         with:
-          version: v0.2.6
+          version: v0.2.7
           path: "./project"
 
   test_mac_version_and_path:
@@ -50,7 +50,7 @@ jobs:
       - run: mkdir project
       - uses: ./.github/actions/test
         with:
-          version: v0.2.6
+          version: v0.2.7
           path: "./project"
 
   test_windows_version_and_path:
@@ -61,5 +61,5 @@ jobs:
       - run: mkdir project
       - uses: ./.github/actions/test
         with:
-          version: v0.2.6
+          version: v0.2.7
           path: "./project"
