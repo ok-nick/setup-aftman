@@ -7,21 +7,22 @@ inputs:
   version:
     required: false
   path:
-    default: '.'
+    default: "."
     required: false
   token:
-    default: '${{ github.token }}'
+    default: "${{ github.token }}"
     required: false
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
-    - run: |
-        cat > ${{ inputs.path}}/aftman.toml << EOF
+    - name: Create manifest file
+      run: |
+        cat > ${{ inputs.path }}/aftman.toml << EOF
         [tools]
-          selene = "Kampfkarren/selene@0.19.1"
-          stylua = "JohnnyMorganz/stylua@0.14.0"
-          rojo = "rojo-rbx/rojo@7.2.1"
+        selene = "Kampfkarren/selene@0.19.1"
+        stylua = "JohnnyMorganz/stylua@0.14.0"
+        rojo = "rojo-rbx/rojo@7.2.1"
         EOF
       shell: bash
 
