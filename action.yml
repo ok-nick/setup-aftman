@@ -45,7 +45,7 @@ runs:
         unzip aftman*.zip
         ./aftman self-install
         rm aftman*.zip
-        rm aftman.exe
+        rm aftman*
       shell: bash
 
     - name: Set environment variable
