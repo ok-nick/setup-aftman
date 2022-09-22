@@ -48,8 +48,8 @@ runs:
 
     - name: Delete artifacts
       run: |
-        rm aftman*.zip
-        rm aftman*
+        rm -v aftman*.zip
+        rm -v aftman*
       shell: bash
 
     - name: Set environment variable
