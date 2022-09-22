@@ -65,7 +65,7 @@ runs:
     - name: Create auth file
       run: |
         cat > $HOME/.aftman/auth.toml << EOF
-        github = "${{ github.token }}"
+        github = "${{ inputs.token }}"
         EOF
       shell: bash
 
