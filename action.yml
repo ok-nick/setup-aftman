@@ -49,7 +49,11 @@ runs:
     - name: Delete artifacts
       run: |
         rm aftman*.zip
-        rm aftman*
+        if ${{ runner.os == 'Windows' }}; then
+          rm aftman.exe
+        else
+          rm aftman
+        fi
       shell: bash
 
     - name: Set environment variable
