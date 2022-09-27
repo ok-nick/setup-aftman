@@ -7,8 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.3.0] - 2022-09-27
-## Changed
+## Added
 - Create `auth.toml` file with input GitHub token.
+
+## Changed
 - Cleanup installation artifacts.
 
 ## [0.2.0] - 2022-08-30
