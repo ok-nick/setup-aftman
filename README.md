@@ -11,7 +11,7 @@ GitHub action to install and run [aftman](https://github.com/LPGhatguy/aftman); 
 ## Usage
 ```yaml
 steps:
-- uses: actions/setup-aftman@v0.3.0
+- uses: ok-nick/setup-aftman@v0.3.0
 ```
 
 ### Parameters
