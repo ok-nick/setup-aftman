@@ -9,17 +9,23 @@
 GitHub action to install and run [aftman](https://github.com/LPGhatguy/aftman); a toolchain manager.
 
 ## Usage
+This is the most common case and automatically provides all the parameters using the latest released version of `aftman`. 
 ```yaml
 steps:
 - uses: ok-nick/setup-aftman@v0.3.0
 ```
+For a list of default parameter values, [check here](https://github.com/ok-nick/setup-aftman/blob/main/action.yml#L5-L25).
 
-### Parameters
-|name|description|default|
-|---|---|---|
-|`version`|`aftman` version in the form `vx.x.x`|-|
-|`path`|Path to the `aftman.toml` directory|`.`|
-|`token`|Github token from `github.token`|`github.token`|
+### Advanced Usage
+For more advanced cases, use the parameters below.
+```yaml
+steps:
+- uses: ok-nick/setup-aftman@v0.3.0
+  with:
+    version: v1.0.0 # name of git tag
+    path: some_directory/my_project # path to project directory containing `aftman.toml`
+    token: ${{ github.token }} # GitHub token to bypass rate limit
+```
 
 ## Credits
 [@nezuo](https://github.com/nezuo) - Installing `aftman` using `gh`
