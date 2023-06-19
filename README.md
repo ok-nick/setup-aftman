@@ -22,7 +22,7 @@ For more advanced cases, use the parameters below.
 steps:
 - uses: ok-nick/setup-aftman@v0.3.0
   with:
-    version: v1.0.0 # name of git tag in Aftman (uses latest by default)
+    version: v1.0.0 # name of git tag in aftman (uses latest by default)
     path: some_directory/my_project # path to project directory containing `aftman.toml`
     token: ${{ github.token }} # GitHub token to bypass rate limit (passed by default)
 ```
