@@ -53,7 +53,7 @@ runs:
 
     - name: Set environment variable
       if: runner.os == 'Windows'
-      run: echo "~/.aftman/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      run: echo "$HOME/.aftman/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       shell: powershell
 
     - name: Set environment variable
