@@ -4,23 +4,14 @@ author: ok-nick
 
 inputs:
   version:
-    description: "`aftman` version in the form `vx.x.x`"
-    required: false
-  trust-check:
-    description: "Whether to check trusts"
-    deprecationMessage: "Input `trust-check` is no longer used in `setup-aftman`, consider removing it from your configuration"
-    default: "true"
-    required: false
-  trusts:
-    description: "List of trusted tools separated by spaces"
-    deprecationMessage: "Input `trusts` is no longer used in `setup-aftman`, consider removing it from your configuration"
+    description: "`aftman` Git tag (usually in the form vx.x.x)"
     required: false
   path:
     description: "Path to the `aftman.toml` directory"
     default: "."
     required: false
   token:
-    description: "Github token from `github.token`"
+    description: "Github token via `github.token`"
     default: "${{ github.token }}"
     required: false
 
