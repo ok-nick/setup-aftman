@@ -9,7 +9,7 @@
 GitHub action to install and run [aftman](https://github.com/LPGhatguy/aftman); a toolchain manager.
 
 ## Usage
-This is the most common case and automatically provides all the parameters using the latest released version of `aftman`. 
+Use the latest released version of `aftman` with default parameters:
 ```yaml
 steps:
 - uses: ok-nick/setup-aftman@v0.3.0
@@ -23,7 +23,8 @@ steps:
 - uses: ok-nick/setup-aftman@v0.3.0
   with:
     version: v1.0.0 # name of git tag in aftman (uses latest by default)
-    path: some_directory/my_project # path to project directory containing `aftman.toml`
+    path: some_dir/my_project # path to project directory containing `aftman.toml` (uses current directory by default)
+    cache: true # whether or not to enable binary caching between runs (true by default)
     token: ${{ github.token }} # GitHub token to bypass rate limit (passed by default)
 ```
 
