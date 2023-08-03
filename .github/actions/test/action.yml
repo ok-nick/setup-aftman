@@ -40,8 +40,7 @@ runs:
         fi
       shell: bash
 
-    - name: Verify executables in PATH on PowerShell for Windows
-      if: runner.os == 'Windows'
+    - name: Verify executables in PATH on PowerShell
       run: |
         Get-Command "selene"
         Get-Command "stylua"
