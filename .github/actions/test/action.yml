@@ -33,17 +33,16 @@ runs:
         path: ${{ inputs.path }}
         token: ${{ inputs.token }}
 
-    - name: Verify executables in PATH on Bash
+    - name: Verify executables in PATH on bash
       run: |
-        if ! hash selene stylua rojo 2>/dev/null; then
-          exit 1;
-        fi
+        command -v selene
+        command -v stylua
+        command -v rojo
       shell: bash
 
-    - name: Verify executables in PATH on PowerShell for Windows
-      if: runner.os == 'Windows'
+    - name: Verify executables in PATH on pwsh
       run: |
         Get-Command "selene"
         Get-Command "stylua"
         Get-Command "rojo"
-      shell: powershell
+      shell: pwsh

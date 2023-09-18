@@ -4,23 +4,18 @@ author: ok-nick
 
 inputs:
   version:
-    description: "`aftman` version in the form `vx.x.x`"
-    required: false
-  trust-check:
-    description: "Whether to check trusts"
-    deprecationMessage: "Input `trust-check` is no longer used in `setup-aftman`, consider removing it from your configuration"
-    default: "true"
-    required: false
-  trusts:
-    description: "List of trusted tools separated by spaces"
-    deprecationMessage: "Input `trusts` is no longer used in `setup-aftman`, consider removing it from your configuration"
+    description: "`aftman` git tag (usually in the form vx.x.x)"
     required: false
   path:
     description: "Path to the `aftman.toml` directory"
     default: "."
     required: false
+  cache:
+    description: "Whether to enable caching"
+    default: "true"
+    required: false
   token:
-    description: "Github token from `github.token`"
+    description: "GitHub token via `github.token`"
     default: "${{ github.token }}"
     required: false
 
@@ -36,9 +31,9 @@ runs:
         esac
 
         gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern $pattern
-      shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
+      shell: bash
 
     - name: Install aftman
       run: |
@@ -63,15 +58,22 @@ runs:
 
     - name: Set environment variable
       if: runner.os != 'Windows'
-      run: echo "$HOME/.aftman/bin" >> $GITHUB_PATH
+      run: echo "~/.aftman/bin" >> $GITHUB_PATH
       shell: bash
 
     - name: Create auth file
       run: |
-        cat > $HOME/.aftman/auth.toml << EOF
+        cat > ~/.aftman/auth.toml << EOF
         github = "${{ inputs.token }}"
         EOF
       shell: bash
+
+    - name: Cache binaries
+      if: ${{ inputs.cache == 'true' }}
+      uses: actions/cache@v3
+      with:
+        path: ~/.aftman/bin
+        key: ${{ runner.os }}-aftman-${{hashFiles(inputs.path)}}
 
     - name: Install tools
       run: |
