@@ -14,8 +14,8 @@ defaults:
 
 jobs:
   test-cache:
-    uses: ./.github/actions/env.yml
+    uses: ./.github/workflows/env.yml
   test-no-cache:
-    uses: ./.github/actions/env.yml
+    uses: ./.github/workflows/env.yml
     with:
       cache: "false"
