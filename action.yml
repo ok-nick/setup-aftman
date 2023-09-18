@@ -72,8 +72,11 @@ runs:
       if: ${{ inputs.cache == 'true' }}
       uses: actions/cache@v3
       with:
-        path: ~/.aftman/bin
-        key: ${{ runner.os }}-aftman-${{hashFiles(inputs.path)}}
+        path: |
+          ~/.aftman/bin
+          ~/.aftman/tool-storage
+        # TODO: also hash ~/.aftman/aftman.toml
+        key: ${{ runner.os }}-aftman-${{hashFiles(format('{0}/{1}', inputs.path, 'aftman.toml'))}}
 
     - name: Install tools
       run: |

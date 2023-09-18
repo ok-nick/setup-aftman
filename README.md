@@ -24,7 +24,7 @@ steps:
   with:
     version: v1.0.0 # name of git tag in aftman (uses latest by default)
     path: some_dir/my_project # path to project dir containing `aftman.toml` (uses current dir by default)
-    cache: true # whether to enable binary caching between runs (true by default)
+    cache: "true" # whether to enable binary caching between runs (true by default)
     token: ${{ github.token }} # GitHub token to bypass rate limit (passed by default)
 ```
 
