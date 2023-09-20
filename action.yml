@@ -12,7 +12,7 @@ inputs:
     required: false
   cache:
     description: "Whether to enable caching"
-    default: "true"
+    default: "false"
     required: false
   token:
     description: "GitHub token via `github.token`"
@@ -58,12 +58,12 @@ runs:
 
     - name: Set environment variable
       if: runner.os != 'Windows'
-      run: echo "~/.aftman/bin" >> $GITHUB_PATH
+      run: echo "$HOME/.aftman/bin" >> $GITHUB_PATH
       shell: bash
 
     - name: Create auth file
       run: |
-        cat > ~/.aftman/auth.toml << EOF
+        cat > $HOME/.aftman/auth.toml << EOF
         github = "${{ inputs.token }}"
         EOF
       shell: bash
@@ -75,7 +75,6 @@ runs:
         path: |
           ~/.aftman/bin
           ~/.aftman/tool-storage
-        # TODO: also hash ~/.aftman/aftman.toml
         key: ${{ runner.os }}-aftman-${{hashFiles(format('{0}/{1}', inputs.path, 'aftman.toml'))}}
 
     - name: Install tools
