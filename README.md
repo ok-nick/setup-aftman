@@ -12,7 +12,7 @@ GitHub action to install and run [aftman](https://github.com/LPGhatguy/aftman); 
 Use the latest released version of `aftman` with default parameters:
 ```yaml
 steps:
-- uses: ok-nick/setup-aftman@v0.4.1
+- uses: ok-nick/setup-aftman@v0.4.2
 ```
 For a list of default parameter values, [check here](https://github.com/ok-nick/setup-aftman/blob/main/action.yml#L5-L20).
 
@@ -20,11 +20,11 @@ For a list of default parameter values, [check here](https://github.com/ok-nick/
 For more advanced cases, use the parameters below.
 ```yaml
 steps:
-- uses: ok-nick/setup-aftman@v0.4.1
+- uses: ok-nick/setup-aftman@v0.4.2
   with:
     version: v1.0.0 # name of git tag in aftman (uses latest by default)
     path: some_dir/my_project # path to project dir containing `aftman.toml` (uses current dir by default)
-    cache: "true" # whether to enable binary caching between runs (true by default)
+    cache: "false" # whether to enable binary caching between runs (false by default)
     token: ${{ github.token }} # GitHub token to bypass rate limit (passed by default)
 ```
 
