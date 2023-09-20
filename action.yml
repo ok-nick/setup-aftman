@@ -58,12 +58,12 @@ runs:
 
     - name: Set environment variable
       if: runner.os != 'Windows'
-      run: echo "~/.aftman/bin" >> $GITHUB_PATH
+      run: echo "$HOME/.aftman/bin" >> $GITHUB_PATH
       shell: bash
 
     - name: Create auth file
       run: |
-        cat > ~/.aftman/auth.toml << EOF
+        cat > $HOME/.aftman/auth.toml << EOF
         github = "${{ inputs.token }}"
         EOF
       shell: bash
@@ -73,9 +73,8 @@ runs:
       uses: actions/cache@v3
       with:
         path: |
-          ~/.aftman/bin
-          ~/.aftman/tool-storage
-        # TODO: also hash ~/.aftman/aftman.toml
+          $HOME/.aftman/bin
+          $HOME/.aftman/tool-storage
         key: ${{ runner.os }}-aftman-${{hashFiles(format('{0}/{1}', inputs.path, 'aftman.toml'))}}
 
     - name: Install tools
