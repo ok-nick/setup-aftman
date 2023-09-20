@@ -12,7 +12,7 @@ inputs:
     required: false
   cache:
     description: "Whether to enable caching"
-    default: "true"
+    default: "false"
     required: false
   token:
     description: "GitHub token via `github.token`"
