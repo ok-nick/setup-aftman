@@ -16,7 +16,7 @@ steps:
 ```
 For a list of default parameter values, [check here](https://github.com/ok-nick/setup-aftman/blob/main/action.yml#L5-L20).
 
-### Advanced Usage
+### Advanced
 For more advanced cases, use the parameters below.
 ```yaml
 steps:

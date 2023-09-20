@@ -1,5 +1,5 @@
 name: setup-aftman
-description: Github action to install and run aftman; a toolchain manager.
+description: GitHub action to install and run aftman; a toolchain manager.
 author: ok-nick
 
 inputs:
