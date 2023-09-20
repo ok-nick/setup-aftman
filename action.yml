@@ -73,8 +73,8 @@ runs:
       uses: actions/cache@v3
       with:
         path: |
-          $HOME/.aftman/bin
-          $HOME/.aftman/tool-storage
+          ~/.aftman/bin
+          ~/.aftman/tool-storage
         key: ${{ runner.os }}-aftman-${{hashFiles(format('{0}/{1}', inputs.path, 'aftman.toml'))}}
 
     - name: Install tools
