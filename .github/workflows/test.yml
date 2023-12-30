@@ -16,8 +16,8 @@ jobs:
   test-cache:
     uses: ./.github/workflows/env.yml
     with:
-      cache: "true"
+      cache: true
   test-no-cache:
     uses: ./.github/workflows/env.yml
     with:
-      cache: "false"
+      cache: false
