@@ -43,8 +43,10 @@ There are a few reasons you may choose to enable caching:
 * A large amount of tools to install
 * Server downloading from is slow
 
+In any case, it is recommended to benchmark before enabling this feature.
+
 ### `token`
-Set to a GitHub token to be used by `aftman` to increase the GitHub rate-limit. Note, these two options, `${{ github.token }}` and `${ secrets.GITHUB_TOKEN}`, are equivalent and passed by default. **Thus, you do not need to specify this parameter unless you are using a token different from the owner of the repository.**
+Set to a GitHub token to be used by `aftman` to increase the GitHub rate-limit. Note, these two options, `${{ github.token }}` and `${{ secrets.GITHUB_TOKEN }}`, are equivalent and passed by default. **Thus, you do not need to specify this parameter unless you are using a token different from the owner of the repository.**
 
 ## Credits
 [@nezuo](https://github.com/nezuo) - Installing `aftman` using `gh`
