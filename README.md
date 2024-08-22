@@ -28,7 +28,6 @@ steps:
     - uses: ok-nick/setup-aftman@v0.4.2
       with:
           version: v1.0.0 # name of git tag in aftman (uses latest tag by default)
-          architecture: x86_64 # architecture of aftman binary to install ("x86_64" by default)
           path: some_dir/my_project # path to project dir containing `aftman.toml` ("." (current dir) by default)
           cache: false # whether to enable binary caching between runs (false by default)
           token: ${{ github.token }} # GitHub token to bypass rate limit (${{ github.token }} set by default)
