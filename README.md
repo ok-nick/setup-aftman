@@ -40,10 +40,6 @@ steps:
 
 The git tag of `aftman` to install from releases and use. By default this input will be assigned to the latest version of `aftman`.
 
-### `architecture`
-
-The [architecture](https://doc.rust-lang.org/rustc/platform-support.html#tier-1-with-host-tools) of the `aftman` binary to install from the Github release downloads. By default this input will be `x86_64`.
-
 ### `path`
 
 The path to the directory containing the `aftman.toml` to install tools from. The default is the current directory (`.`).

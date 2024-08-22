@@ -6,10 +6,6 @@ inputs:
   version:
     description: "`aftman` git tag (usually in the form vx.x.x)"
     required: false
-  architecture:
-    description: "architecture of the system you're installing for"
-    default: "x86_64"
-    required: false
   path:
     description: "Path to the `aftman.toml` directory"
     default: "."
@@ -28,10 +24,15 @@ runs:
   steps:
     - name: Download aftman
       run: |
+        case ${{ runner.arch }} in
+          "X86" | "X64") fileArch="x86_64" ;;
+          "ARM" | "ARM64") fileArch="aarch64" ;;
+        esac
+
         case ${{ runner.os }} in
-          Linux) pattern="*linux-${{ inputs.architecture }}.zip" ;;
-          macOS) pattern="*macos-${{ inputs.architecture }}.zip" ;;
-          Windows) pattern="*windows-${{ inputs.architecture }}.zip" ;;
+          Linux) pattern="*linux-$fileArch.zip" ;;
+          macOS) pattern="*macos-$fileArch.zip" ;;
+          Windows) pattern="*windows-$fileArch.zip" ;;
         esac
 
         gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern $pattern
