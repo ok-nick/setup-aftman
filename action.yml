@@ -24,10 +24,15 @@ runs:
   steps:
     - name: Download aftman
       run: |
+        case ${{ runner.arch }} in
+          "X86" | "X64") fileArch="x86_64" ;;
+          "ARM" | "ARM64") fileArch="aarch64" ;;
+        esac
+
         case ${{ runner.os }} in
-          Linux) pattern="*linux-x86_64.zip" ;;
-          macOS) pattern="*macos-x86_64.zip" ;;
-          Windows) pattern="*windows-x86_64.zip" ;;
+          Linux) pattern="*linux-$fileArch.zip" ;;
+          macOS) pattern="*macos-$fileArch.zip" ;;
+          Windows) pattern="*windows-$fileArch.zip" ;;
         esac
 
         gh release download ${{ inputs.version }} --repo LPGhatguy/aftman --pattern $pattern
